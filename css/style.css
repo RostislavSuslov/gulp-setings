@@ -1,0 +1,576 @@
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Light'), url('../fonts/MyriadPro-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold'), url('../fonts/MYRIADPRO-SEMIBOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold'), url('../fonts/MYRIADPRO-BOLD.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Myriad Pro Regular';
+}
+
+.reviews {
+    /* height: 200vh; */
+    margin-bottom: 105px;
+}
+
+button,
+a {
+    outline: none;
+}
+
+.container-wrap {
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+}
+
+.section-wrapper {
+    max-width: 1290px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #880032;
+    font-weight: 900;
+}
+
+.with-gutter {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+/* ************************************ */
+/* utility */
+/* ************************************ */
+.fixed {
+    position: fixed;
+}
+
+/* ************************************ */
+/* BUTTONS */
+/* ************************************ */
+
+.btn {
+    padding: 11px 47px;
+    background-color: #880032;
+    color: #fff;
+    border: none;
+    font-family: 'Myriad Pro Regular';
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: inset transparent;
+    transition: all .25s ease-in-out;
+}
+
+.btn.sticky-confirm {
+    margin-left: 5px;
+    max-height: 40px;
+}
+
+.btn:hover {
+    box-shadow: inset 0px 1px 20px 5px rgba(0, 0, 0, .45);
+}
+
+.btn:active {
+    box-shadow: inset 0px 3px 20px 5px rgba(0, 0, 0, .85);
+}
+
+/* ************************************ */
+/* ACCORDION */
+/* ************************************ */
+
+.accordion {
+    background: #fff;
+    color: #424242;
+    font-size: 24px;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    border: none;
+    text-align: left;
+    font-family: 'Myriad Pro Bold';
+    padding: 20px 0;
+    border-bottom: 2px solid #e3e4e5;
+}
+
+.accordion:after {
+    content: '+';
+    font-size: 46px;
+    color: #000;
+    line-height: 30px;
+    float: right;
+    font-weight: 100;
+    /* margin-left: 5px; */
+}
+
+.active:after {
+    content: "–";
+    margin-right: 2px;
+}
+
+.accordion-panel strong {
+    font-weight: bold;
+}
+
+.accordion-panel li {
+    line-height: 25px;
+}
+
+/*.active, .accordion:hover {
+    background-color: #ccc;
+}*/
+
+.accordion-panel {
+    background-color: #fff;
+    /* display: none; */
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height .2s ease-out;
+}
+
+button.accordion.active+.accordion-panel {
+    padding: 30px 0 10px;
+}
+
+/* ************************************ */
+/* RELATED BOOKS */
+/* ************************************ */
+
+.related-books {
+    margin-bottom: 70px;
+    margin-top: 40px;
+}
+
+.related-books-wrap {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.related-books-slider {
+    display: none;
+}
+
+.related-item {
+    min-width: 295px;
+    min-height: 216px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: 100% 100%;
+    background-position: center;
+    transition: all .2s ease;
+    color: #fff;
+    text-decoration: none;
+}
+
+.related-item:hover {
+    background-size: 110% 110%;
+}
+
+.anxiety-bg {
+    background-image: url('../img/anxiety_bg.jpg');
+}
+
+.confidence-bg {
+    background-image: url('../img/confidence_bg.jpg');
+}
+
+.lonely-bg {
+    background-image: url('../img/lonely_bg.jpg');
+}
+
+.anger-bg {
+    background-image: url('../img/anger_bg.jpg');
+}
+
+.related-item-title {
+    font-family: 'Myriad Pro Bold';
+    font-size: 36px;
+}
+
+.related-item-desc {
+    margin-top: 9px;
+    font-size: 22px;
+}
+
+.related-item-link {
+    margin-top: 20px;
+    font-family: 'Myriad Pro Bold';
+    font-size: 20px;
+    color: #fff;
+}
+
+/* ************************************ */
+/* AUTHOR */
+/* ************************************ */
+
+.about-author {
+    margin-bottom: 90px;
+}
+
+.about-author-txt {
+    margin-top: 35px;
+    font-size: 22px;
+    color: #424242;
+}
+
+.about-author-txt img {
+    float: left;
+    margin-right: 35px;
+}
+
+/* ************************************ */
+/* REVIEWS */
+/* ************************************ */
+.toolbox {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbox__item {
+    min-width: 411px;
+    min-height: 175px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbox-title {
+    font-size: 30px;
+    font-family: 'Myriad Pro Bold';
+    color: #424242;
+}
+
+.toolbox-star-container {
+    margin-top: 10px;
+}
+
+.total-reviews {
+    margin-top: 5px;
+    font-family: 'Myriad Pro Semibold';
+    font-size: 27px;
+    color: #880032;
+}
+
+.btn-review {
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Myriad Pro Bold';
+}
+
+.share-container {
+    margin-top: 5px;
+}
+
+.share-link:not(:last-child) {
+    margin-right: 11px;
+}
+
+.share-link {
+    font-size: 39px;
+    color: #880032;
+    cursor: pointer;
+}
+
+.share-link:hover {
+    color: #61122f;
+}
+
+#copy-link {
+    font-size: 35px;
+}
+
+/* REVIEW BLOCKS */
+
+.review-item {
+    display: flex;
+}
+
+.review-item:not(:last-child) {
+    margin-bottom: 60px;
+}
+
+.review-info {
+    min-width: 235px;
+    padding-right: 7px;
+}
+
+.review-content .toolbox-star-container {
+    margin-top: 0;
+}
+
+.author-name {
+    font-family: 'Myriad Pro Semibold';
+    font-size: 22px;
+    color: #424242;
+}
+
+.author-date {
+    font-family: 'Myriad Pro Light';
+    font-size: 22px;
+    color: #424242;
+}
+
+.review-content-title {
+    margin-top: 10px;
+    font-family: 'Myriad Pro Semibold';
+    font-size: 22px;
+    color: #424242;
+}
+
+.review-content-txt {
+    margin-top: 20px;
+    font-size: 22px;
+    color: #424242;
+}
+
+/* SEE ALL */
+.reviews-see-all {
+    margin-top: 70px;
+    border-top: 1px solid #c7c9cb;
+    border-bottom: 1px solid #c7c9cb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.see-all-txt {
+    color: #880032;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* ************************************ */
+/* STICKY */
+/* ************************************ */
+.sticky-footer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, .35);
+    background: #fff;
+    width: 100%;
+    left: 0;
+    position: sticky;
+    z-index: 99;
+    bottom: 0;
+}
+
+.sticky-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.sticky-letter-img svg {
+    height: 66px;
+    width: 66px;
+}
+
+.sticky-text {
+    margin-left: 20px;
+}
+
+.sticky-text-semibold {
+    font-family: 'Myriad Pro Semibold';
+}
+
+/* FORM */
+.sticky-wrap form {
+    display: flex;
+    align-items: center;
+}
+
+#sticky-email {
+    height: 40px;
+    width: 300px;
+    margin-left: 25px;
+    border: 1px solid #d4d4d4;
+    padding-left: 13px;
+}
+
+
+
+/* ************************************ */
+/* FOOTER  */
+/* ************************************ */
+footer {
+    min-height: 50px;
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+footer .flex-column {
+    width: 100%;
+}
+
+footer .logo {
+    margin: 0 0 16px;
+}
+
+h2.footer-title {
+    font-size: 24px;
+    line-height: 30px;
+    color: #880032;
+    font-weight: 900;
+}
+
+nav.footer-nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav.footer-nav ul li {
+    margin: 0 30px;
+}
+
+nav.footer-nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+}
+
+nav.footer-nav {
+    margin: 0 auto;
+    display: flex;
+}
+
+.flex-row.lg-row {
+    margin: 70px 0 60px 0;
+}
+
+footer .flex-row.lg-row {
+    margin: 70px 0 60px 0;
+    text-align: center;
+}
+
+input#footer-email {
+    width: 280px;
+    height: 33px;
+
+    padding: 0 10px;
+    border: 1px solid #d4d4d4;
+    background-image: url(../img/leter.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 97%;
+}
+
+button.btn-footer {
+    width: 85px;
+    height: 33px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #98ac25;
+    border: none;
+    border-radius: 4px;
+}
+
+button.btn-footer:hover {
+    box-shadow: inset 0px 1px 20px 5px rgba(0, 0, 0, .45);
+}
+
+.text-container p {
+    margin: 16px 0;
+}
+
+
+
+
+
+
+
+
+
+
+footer .flex-row.copyright {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin: 30px 0 0;
+    color: #fff;
+    background-color: #880032;
+    padding: 40px 0;
+    justify-content: center;
+}
+
+footer .flex-row.copyright a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1290px) {
+    .related-books-wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .related-item {
+        flex-basis: 45%;
+        margin: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .toolbox {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .related-books-wrap {
+        display: none;
+    }
+
+    .related-books-slider {
+        display: block;
+    }
+}

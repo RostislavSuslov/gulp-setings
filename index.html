@@ -1,11 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MLC</title>
+    <script src="https://kit.fontawesome.com/708f41fa83.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
 </head>
+
 <body>
-	
+    <svg width="0" height="0" class="hidden" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 66 66" id="letter">
+            <image width="66" height="66" xlink:href="data:img/png;base64,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"></image>
+        </symbol>
+    </svg>
+    <header>
+        <div class="wrapper">
+            <div class="left-box">
+                <div class="menu">
+                    <div id="menu-burger" class="">
+                        <span class="menu-icon"></span>
+                    </div>
+                    <div id="overlay-menu2" class=" ">
+                        <nav role="navigation">
+                            <a href="#">Home</a>
+                            <a href="#">Life Skils</a>
+                            <a href="#">MLC University</a>
+                            <a href="#">My MLC</a>
+                            <a href="#">Shop</a>
+                            <a href="#">Donate</a>
+                            <div class="bottom-box">
+                                <a href="#">My Account</a>
+                                <a href="#">View Cart</a>
+                                <a href="#">Login</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="#"><img src="img/logo.png"></a>
+                </div>
+            </div>
+            <div class="right-box">
+                <div class="user">
+                    <img src="img/user.png">
+                </div>
+                <div class="cart">
+                    <img src="img/cart.png">
+                    <span class="cart__total">1</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="banner-top">
+        <div class="wrapper">
+            <div class="adop-img">
+                <img src="img/banner-bg-adop.png">
+            </div>
+            <div class="text-container">
+                <h1>Toward A Meaningful Life <p class="tagline">by Simon Jacobson</p>
+                </h1>
+                <ul class="banner-list">
+                    <li class="banner-list-item"><img src="img/green.png">#1 Book in Spirituality and Personal Growth</li>
+                    <li class="banner-list-item"><img src="img/green.png">Profound Consciousness Shift </li>
+                    <li class="banner-list-item"><img src="img/green.png">New York Times Bestseller </li>
+                </ul>
+                <div class="banner-text">
+                    <p>This was by far the most life-changing book I've ever read. It put to words so many things I've felt in life. The lessons I learned from this book have inspired me and informed my life on a daily basis.</p>
+                    <p><b> — Simone Kboudi (Amazon Customer)</b></p>
+                    <img src="img/star-2.png">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="medium-text">
+        <div class="medium-title">
+            <h2>Are you consumed by jealousy in your life? <br> Do you feel envious when you watch others succeed?</h2>
+        </div>
+        <div class="text-container">Jealousy is very much connected to insecurity. When you are insecure, you sometimes feel that <br> if everyone else is insecure and fails, then you won’t look so bad.
+        </div>
+        <div class="text-container">Insecurity means you are always looking at others to define what you need. The more secure <br> you are, the less jealous of a person you will be. </div>
+    </section>
+    <section class="benefits">
+        <div class="wrapper">
+            <div class="product-slider">
+                <div class="lg-img"><img src="img/slide_1.jpg"></div>
+                <div class="xs-img-container">
+                    <div class="xs-img"><img src="img/slide_2.jpg"></div>
+                    <div class="xs-img"><img src="img/slide_3.jpg"></div>
+                    <div class="xs-img"><img src="img/slide_3.jpg"></div>
+                </div>
+            </div>
+            <div class="features">
+                <div class="features-title">
+                    <h2>Toward A Meaningful Life</h2>
+                    <p class="tagline">by <b>Simon Jacobson</b></p>
+                    <div class="features-reviews">
+                        <div class="toolbox-star-container">
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                        </div>
+                        <a class="view-reviews" href="#">79 customer reviews</a>
+                    </div>
+                </div>
+                <div class="price-container">
+                    <div class="flex-column">
+                        <div class="papervack">
+                            <p>Paperback</p>
+                            <span>$</span>11.59
+                        </div>
+                        <div class="flex-row">
+                            <div class="hardcover">
+                                <p>Hardcover</p>$24.51
+                            </div>
+                            <div class="paperback">
+                                <p>Paperback</p>$11.59
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <img src="img/xs-product.png">
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <a href="#" class="add-to-cart">ADD TO CART</a>
+                    <a href="#" class="amazon"><img src="img/amazon-btn.png"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sm-text">
+        <div class="wrapper">
+            <div class="sm-text__title">
+                <h2>Jealousy</h2>
+                <div class="sm-text__text-container">The breeding ground for jealousy is your dissatisfaction with your own life. You can get easily consumed with other people’s lives when you are not at peace with your own, looking at everyone else and what they have, looking at everything outside of yourself. To make things harder, our society actively promotes gossip and voyerism. And jealousy can drive someone to the lowest depths in ways that are completely inhumane. But if you were to look at yourself and say, “I have my own strengths,” — and realize that G-d blessed you with a particular unique personality and unique contributions to make, you generally would look less to others.
+                    The formula goes: The more secure you are, the less jealous of a person you will be. You need not look elsewhere. Everything you need is within you.</div>
+                <div class="sm-text__text-container">he book Toward a Meaningful Life provides a universal blueprint for living a healthy and vibrant life. A life where you feel you are enough and you have enough. It's a book with a holistic perspective, a book that encapsulates all vital areas of life and propells you forward on a journey towards your true self, towards a life that's truly meaningful. </div>
+                <a class="btn-video" href="#">Watch a Video On Jealousy</a>
+                <div class="order-container">
+                    <div class="flex-column">
+                        <div class="img-container">
+                            <img src="img/star-2.png">
+                        </div>
+                        <h2 class="order-container__title">
+                            Everything you need is within you.
+                            <br>
+                            Start taking your power back today.
+                        </h2>
+                        <a href="#" class="order-btn">order your book now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-wrap">
+        <!-- ACCORDION -->
+        <section class="accordion-wrapper">
+            <div class="section-wrapper">
+                <!-- accordion item -->
+                <button class="accordion">Product Details</button>
+                <div class="accordion-panel">
+                    <ul>
+                        <li><strong>Hardcover:</strong>336 pages</li>
+                        <li><strong>Publisher:</strong>William Morrow; 2 edition (December 26, 2017)</li>
+                        <li><strong>Language:</strong>Englishs</li>
+                        <li><strong>ISBN-10:</strong>0062856979</li>
+                        <li><strong>ISBN-13:</strong>978-0062856975</li>
+                        <li><strong>Product Dimensions:</strong>5.6 x 1.1 x 8.2 inches</li>
+                        <li><strong>Shipping Weight:</strong> 14.4 ounces </li>
+                    </ul>
+                </div>
+                <!-- accordion item -->
+                <button class="accordion">Read an Excerpt</button>
+                <div class="accordion-panel">
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio recusandae vel voluptates hic error beatae consectetur sint dolore molestias fugiat velit autem natus, reprehenderit dolorem, deleniti aut aspernatur quisquam cum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium velit qui, rerum veritatis voluptate eaque nostrum omnis sit porro placeat commodi labore ducimus! Sequi incidunt assumenda ut magni corrupti!</div>
+                </div>
+                <!-- accordion item -->
+                <button class="accordion">Table of Contents</button>
+                <div class="accordion-panel">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio recusandae vel voluptates hic error beatae consectetur sint dolore molestias fugiat velit autem natus, reprehenderit dolorem, deleniti aut aspernatur quisquam cum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium velit qui, rerum veritatis voluptate eaque nostrum omnis sit porro placeat commodi labore ducimus! Sequi incidunt assumenda ut magni corrupti!
+                </div>
+            </div>
+        </section>
+        <!-- RELATED BOOKS -->
+        <section class="related-books">
+            <div class="section-wrapper">
+                <h2 class="section-title">Related Topic</h2>
+                <div class="related-books-wrap">
+                    <a href="#!" class="related-item anxiety-bg">
+                        <div class="related-item-title">Anxiety</div>
+                        <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                        <p class="related-item-link">Read More</p>
+                    </a>
+                    <a href="#!" class="related-item confidence-bg">
+                        <div class="related-item-title">Confidence</div>
+                        <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                        <p href="#!" class="related-item-link">Read More</p>
+                    </a>
+                    <a href="#!" class="related-item lonely-bg">
+                        <div class="related-item-title">Loneliness</div>
+                        <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                        <p href="#!" class="related-item-link">Read More</p>
+                    </a>
+                    <a href="#!" class="related-item anger-bg">
+                        <div class="related-item-title">Anger</div>
+                        <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                        <p href="#!" class="related-item-link">Read More</p>
+                    </a>
+                </div>
+                <div class="related-books-slider">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <a href="#!" class="related-item anxiety-bg swiper-slide">
+                                <div class="related-item-title">Anxiety</div>
+                                <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                                <p class="related-item-link">Read More</p>
+                            </a>
+                            <a href="#!" class="related-item confidence-bg swiper-slide">
+                                <div class="related-item-title">Confidence</div>
+                                <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                                <p href="#!" class="related-item-link">Read More</p>
+                            </a>
+                            <a href="#!" class="related-item lonely-bg swiper-slide">
+                                <div class="related-item-title">Loneliness</div>
+                                <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                                <p href="#!" class="related-item-link">Read More</p>
+                            </a>
+                            <a href="#!" class="related-item anger-bg swiper-slide">
+                                <div class="related-item-title">Anger</div>
+                                <p class="related-item-desc">A Plan to Handle Anxiety</p>
+                                <p href="#!" class="related-item-link">Read More</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- AUTHOR SECTION -->
+        <section class="about-author">
+            <div class="section-wrapper">
+                <h2 class="section-title">About the Author</h2>
+                <p class="about-author-txt">
+                    <img src="img/author_photo.jpg" alt="">
+                    Rabbi Simon Jacobson is the author of the best-selling book Toward a Meaningful Life, a William Morrow publication that has sold over 300,000 copies to date and has been translated into Hebrew, French, Spanish, Dutch, Portuguese, Italian, Russian, German, Hungarian, Polish, Czech and Georgian.
+                    <br>
+                    <br>
+                    Rabbi Simon Jacobson is the author of the best-selling book Toward a Meaningful Life and heads The Meaningful Life Center (www.meaningfullife.com), which bridges the secular and the spiritual, through a wide variety of live and on-line programming. The Center, which has now found its home in Dow ntown Manhattan's East Village, MLC@
+                    <br>
+                    <br>
+                    6th, at 325 East Sixth Street, presents to people of all backgrounds, the universal teachings of Torah as a blueprint for life.
+                    <br>
+                    <br>
+                    Rabbi Jacobson is the publisher of the largest Yiddish-English weekly newspaper, The Algemeiner Journal (www.algemeiner.com), filling the position of his illustrious father, esteemed journalist Gershon Jacobson.
+                </p>
+            </div>
+        </section>
+        <!-- REVIEWS SECTION -->
+        <section class="reviews">
+            <div class="section-wrapper">
+                <h2 class="section-title">Customer Reviews</h2>
+                <!-- reviews toolboxes -->
+                <div class="toolbox">
+                    <div class="toolbox__item">
+                        <p class="toolbox-title">Average Review</p>
+                        <div class="toolbox-star-container">
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                        </div>
+                        <div class="total-reviews">
+                            <span id="reviews-count">79</span>
+                            <span>Reviews</span>
+                        </div>
+                    </div>
+                    <div class="toolbox__item">
+                        <a href="#!" class="btn btn-colored btn-review">
+                            Write a Review
+                        </a>
+                    </div>
+                    <div class="toolbox__item">
+                        <p class="toolbox-title">Share This Item</p>
+                        <div class="share-container">
+                            <a href="#" class="share-link" id="share-fb"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#" class="share-link" id="share-insta"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="share-link" id="share-pinterest"><i class="fab fa-pinterest-square"></i></a>
+                            <a href="#" class="share-link" id="copy-link"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- reviews -->
+                <div class="review-item with-gutter">
+                    <div class="review-info">
+                        <p class="author-name">Joel L. Gandelman</p>
+                        <p class="author-date">October 26, 2016</p>
+                    </div>
+                    <div class="review-content">
+                        <div class="toolbox-star-container">
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                        </div>
+                        <p class="review-content-title">and what blew me away was the wonderful theology and philsophy You do NOT have to be .</p>
+                        <p class="review-content-txt">
+                            I'm Jewish but I read a lot of theological books. I'm also a nationally performing fulltime ventriloquist (check my name on the internet) and do a LOT of shows for Chabads. But about two years ago I decided to find out more about Chabads, and what blew me away was the wonderful theology and philsophy You do NOT have to be Jewish to like this book. To me, it fits in with The Power of Now and so many other books that put things into a more theological and spiritual context. It is so easy to read, so deep, and many of the essays with stay with you for hours. I was gifted this as a hardcover by a rabbi I did a show for. I recently ordered it so it's on my kindle and I've gifted my copy to my sister, who sent me The Power of Now and some other books. This is such a deep, easy to read book -- and it cuts across all theologies. HIGHLY RECOMMENDED
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item with-gutter">
+                    <div class="review-info">
+                        <p class="author-name">Miss G</p>
+                        <p class="author-date">September 20, 2016</p>
+                    </div>
+                    <div class="review-content">
+                        <div class="toolbox-star-container">
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                            <span class="star"><img src="img/star.png" alt=""></span>
+                        </div>
+                        <p class="review-content-title">Absolutely Amazing! A MUST READ for Everyone!</p>
+                        <p class="review-content-txt">
+                            I wish I had read this book of wisdom from Rebbe 20 years ago. It is so amazing I told everyone about, including my non Jewish friends. I even ordered another copy in Russian for my mom! If you have teenage children, let them read this book! I believe that every human being should read this book of great wisdom, especially our politicians! If everyone applied morals and values provided by Rebbe, this world would have been a better place. There would peace among every human being! This book deserves 100 stars!!!
+                        </p>
+                    </div>
+                </div>
+                <!-- see all reviews -->
+                <div class="reviews-see-all">
+                    <a href="#!" class="see-all-txt">
+                        See All Customer Reviews
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- REVIEWS SECTION END -->
+        <!-- STICKY FOOTER -->
+        <div class="sticky-footer fixed">
+            <div class="section-wrapper">
+                <div class="sticky-wrap">
+                    <div class="sticky-letter-img">
+                        <svg class="">
+                            <use xlink:href="#letter"></use>
+                        </svg>
+                    </div>
+                    <div class="sticky-text">
+                        <p class="sticky-text-semibold">Get the MLC Newsletter</p>
+                        <p class="sticky-text-light">Receive our latest news & offers in your inbox</p>
+                    </div>
+                    <form action="submit">
+                        <input type="text" name="" id="sticky-email" placeholder="Enter Your Email Address">
+                        <button type="submit" class="btn sticky-confirm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- STICKY FOOTER END -->
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            <div class="wrapper">
+                <div class="flex-column">
+                    <div class="flex-row lg-row">
+                        <div class="flex-column">
+                            <div class="logo">
+                                <a href="#"><img src="img/logo.png"></a>
+                            </div>
+                            Your Spiritual Health Center | Offering Indispensable Life Skills
+                        </div>
+                        <div class="flex-column">
+                            <div class="text-container">
+                                <h2 class="footer-title">Get the MLC Newsletter</h2>
+                                <p> Receive our latest news & offers in your inbox</p>
+                            </div>
+                            <div class="footer-form">
+                                <form action="submit">
+                                    <input type="text" name="" id="footer-email" placeholder="Enter Your Email Address">
+                                    <button type="submit" class="btn-footer">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="flex-column">
+                            <div class="footer-masenger">
+                                <div class="share-container">
+                                    <a href="#" class="share-link" id="share-fb"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                                    <a href="#" class="share-link" id="share-insta"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#" class="share-link" id="share-pinterest"><i class="fab fa-pinterest-square" aria-hidden="true"></i></a>
+                                    <a href="#" class="share-link" id="copy-link"><i class="fas fa-link" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <nav class="footer-nav">
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Calendar</a></li>
+                                <li><a href="#">Donate</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-row copyright">
+                <p>© 2019 Meaningful Life Center. All rights reserved. <a href="https://www.meaningfullife.com/privacy-policy/">Privacy Policy</a> | <a href="https://www.meaningfullife.com/terms-conditions/">Terms &amp; Conditions</a></p>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        //   pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        //   },
+    });
+    </script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
